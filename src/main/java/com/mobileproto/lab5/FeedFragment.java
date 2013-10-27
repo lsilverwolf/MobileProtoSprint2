@@ -1,36 +1,16 @@
 package com.mobileproto.lab5;
 
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.view.View;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.CoreProtocolPNames;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOError;
-import java.io.InputStreamReader;
-import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -62,23 +42,27 @@ public class FeedFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 System.out.print("CLICKED ME");
                 //Getting title (id) of what is clicked
-                TextView textView = (TextView) view.findViewById(R.id.feedDate);
-                String getTweetDate = textView.getText().toString();
+                TextView textView = (TextView) view.findViewById(R.id.feedItemUser);
+                String getUser = textView.getText().toString();
+                TextView blurbText = (TextView) view.findViewById(R.id.feedText);
+                String blurb = blurbText.getText().toString();
+                TextView yearText = (TextView) view.findViewById(R.id.classYearText);
+                String year = yearText.getText().toString();
 
-                Cursor tweetdb = FeedActivity.dbHelper.getTweetFeedDB(getTweetDate);
-                //Moving the cursor to the selected point (what was clicked on) in the database
+//                Cursor chaosdb = FeedActivity.dbHelper.getCHAOSFeedDB(getUser);
 
-                tweetdb.moveToFirst();
-                //Getting the Title and content of the note
-                String username = tweetdb.getString(2);
-                String tweet = tweetdb.getString(3);
-                String date = tweetdb.getString(4);
+//                chaosdb.moveToFirst();
+//                //Getting the Title and content of the note
+//                String username = chaosdb.getString(2);
+//                String blurb = chaosdb.getString(3);
+//                String year = chaosdb.getString(4);
 
                 //Creating intent to pass information
                 Intent in = new Intent(getActivity(), DetailActivity.class);
-                in.putExtra("username", username);
-                in.putExtra("tweet", tweet);
-                in.putExtra("date", date);
+                in.putExtra("username", getUser);
+                in.putExtra("blurb", blurb);
+                in.putExtra("year", year);
+
 
                 //Going to new display of the note
                 startActivity(in);

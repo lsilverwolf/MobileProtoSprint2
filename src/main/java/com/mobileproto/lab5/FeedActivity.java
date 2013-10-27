@@ -1,29 +1,19 @@
 package com.mobileproto.lab5;
 
 import android.app.ActionBar;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.app.Activity;
 import android.os.Handler;
-import android.util.Log;
-import android.view.Menu;
-import android.widget.ListView;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 public class FeedActivity extends Activity {
 
     public static String myname = "reaper";
     public static List<FeedItem> allData;
-    public static TweetsDbHelper dbHelper;
+//    public static CHAOSDbHelper dbHelper;
     Handler handler;
 
     @Override
@@ -32,13 +22,13 @@ public class FeedActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         allData = new ArrayList<FeedItem>();
-        dbHelper = new TweetsDbHelper(this);
+//        dbHelper = new CHAOSDbHelper(this);
 
         // Define view fragments
         FeedFragment feedFragment = new FeedFragment();
-        ConnectionFragment connectionFragment = new ConnectionFragment();
+        MyProfileFragment myProfileFragment = new MyProfileFragment();
         SearchFragment searchFragment = new SearchFragment();
-        TweetFragment tweetFragment = new TweetFragment();
+        //TweetFragment tweetFragment = new TweetFragment();
 
         /*
          *  The following code is used to set up the tabs used for navigation.
@@ -51,35 +41,20 @@ public class FeedActivity extends Activity {
         ActionBar.Tab feedTab = actionBar.newTab().setText(R.string.tab1);
         feedTab.setTabListener(new NavTabListener(feedFragment));
 
-        ActionBar.Tab connectionTab = actionBar.newTab().setText(R.string.tab2);
-        connectionTab.setTabListener(new NavTabListener(connectionFragment));
-
-        ActionBar.Tab searchTab = actionBar.newTab().setText(R.string.tab3);
+        ActionBar.Tab searchTab = actionBar.newTab().setText(R.string.tab2);
         searchTab.setTabListener(new NavTabListener(searchFragment));
 
-        ActionBar.Tab newtweetTab = actionBar.newTab().setText(R.string.tab4);
-        newtweetTab.setTabListener(new NavTabListener(tweetFragment));
+        ActionBar.Tab connectionTab = actionBar.newTab().setText(R.string.tab3);
+        connectionTab.setTabListener(new NavTabListener(myProfileFragment));
 
         actionBar.addTab(feedTab);
-        actionBar.addTab(connectionTab);
         actionBar.addTab(searchTab);
-        actionBar.addTab(newtweetTab);
+        actionBar.addTab(connectionTab);
 
         actionBar.setStackedBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.android_dark_blue)));
 
-        /*handler=new Handler();
-        handler.post(new Runnable(){
+        updateDB();
 
-            @Override
-            public void run() {*/
-
-                // Syncing with server
-                updateDB();
-
-                /*handler.postDelayed(this,5000); // Every 5 seconds
-            }
-
-        });*/
 
     }
 
@@ -93,7 +68,7 @@ public class FeedActivity extends Activity {
 
         try {
             //Getting the array with all Tweets
-            jParser.makeTweetList(feedURL);
+            jParser.makeCHAOSList(feedURL);
             allData = jParser.getAllData();
         }
         catch (Exception e){
@@ -102,15 +77,4 @@ public class FeedActivity extends Activity {
         }
 
     }
-    public static String getDate(Long milliSeconds)
-    {
-        // Create a DateFormatter object for displaying date in specified format.
-        DateFormat formatter = new SimpleDateFormat("HH:mm:ss MM/dd/yyyy");
-
-        // Create a calendar object that will convert the date and time value in milliseconds to date.
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(milliSeconds);
-        return formatter.format(calendar.getTime());
-    }
-
 }

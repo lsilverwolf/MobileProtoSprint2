@@ -23,29 +23,13 @@ public class DetailActivity extends Activity {
 
         final TextView username = (TextView) findViewById(R.id.feedItemUser);
         final TextView tweet = (TextView) findViewById(R.id.feedText);
-        final TextView date = (TextView) findViewById(R.id.feedDate);
+        final TextView year = (TextView) findViewById(R.id.classYearText);
 
 
 
         username.setText(intent.getStringExtra("username"));
-        tweet.setText(intent.getStringExtra("tweet"));
-        date.setText(intent.getStringExtra("date"));
-
-        ImageView img = (ImageView) findViewById(R.id.imageView);
-        img.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View vtwo) {
-                //Getting title (id) of what is clicked
-                TextView textView = (TextView) vtwo.findViewById(R.id.feedItemUser);
-                String getUserName = textView.getText().toString();
-
-                //Creating intent to pass information
-                Intent in = new Intent(getApplicationContext(), UserViewActivity.class);
-                in.putExtra("username", username.toString());
-
-                //Going to new display of the note
-                startActivity(in);
-            }
-        });
+        tweet.setText(intent.getStringExtra("blurb"));
+        year.setText(intent.getStringExtra("year"));
 
     }
 

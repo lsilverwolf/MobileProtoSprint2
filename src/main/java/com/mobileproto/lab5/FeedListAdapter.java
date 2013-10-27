@@ -32,7 +32,7 @@ public class FeedListAdapter extends ArrayAdapter<FeedItem> {
 
         TextView userName;
         TextView text;
-        TextView date;
+        TextView classYear;
 
     }
 
@@ -48,7 +48,7 @@ public class FeedListAdapter extends ArrayAdapter<FeedItem> {
             holder = new FeedItemHolder();
             holder.userName = (TextView) feedRow.findViewById(R.id.feedItemUser);
             holder.text = (TextView) feedRow.findViewById(R.id.feedText);
-            holder.date = (TextView) feedRow.findViewById(R.id.feedDate);
+            holder.classYear = (TextView) feedRow.findViewById(R.id.classYearText);
 
             feedRow.setTag(holder);
         } else {
@@ -59,11 +59,6 @@ public class FeedListAdapter extends ArrayAdapter<FeedItem> {
 
         holder.userName.setText(item.userName);
         holder.text.setText(item.text);
-        holder.date.setText(item.date);
-
-
-
-
 
         return feedRow;
     }

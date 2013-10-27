@@ -12,23 +12,20 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-
 /**
  * Created by kaustin on 10/5/13.
  */
-public class TweetsDbHelper extends SQLiteOpenHelper {
+public class CHAOSDbHelper extends SQLiteOpenHelper {
 
     // Logcat tag
     private static final String LOG = "DatabaseHelper";
 
     /* Inner class that defines the table contents */
     public static abstract class FeedEntry implements BaseColumns {
-        public static final String TABLE_TWEETFEED = "tweettb";
+        public static final String TABLE_CHAOS_USERS = "chaosdb";
         public static final String _ID = "_id";
-        public static final String COLUMN_NAME_ID = "tweetid";
         public static final String COLUMN_NAME_USERNAME = "username";
-        public static final String COLUMN_NAME_TWEET = "tweet";
+        public static final String COLUMN_NAME_BLURB = "tweet";
         public static final String COLUMN_NAME_DATE = "date";
 
         public static final String TABLE_USERS = "usertb";
@@ -40,11 +37,10 @@ public class TweetsDbHelper extends SQLiteOpenHelper {
     private static final String TEXT_TYPE = " TEXT";
     private static final String COMMA_SEP = ",";
     private static final String CREATE_TABLE_TWEETFEED =
-            "CREATE TABLE " + FeedEntry.TABLE_TWEETFEED + " (" +
+            "CREATE TABLE " + FeedEntry.TABLE_CHAOS_USERS + " (" +
                     FeedEntry._ID + " INTEGER PRIMARY KEY," +
-                    FeedEntry.COLUMN_NAME_ID + TEXT_TYPE + COMMA_SEP +
                     FeedEntry.COLUMN_NAME_USERNAME + TEXT_TYPE + COMMA_SEP +
-                    FeedEntry.COLUMN_NAME_TWEET + TEXT_TYPE + COMMA_SEP +
+                    FeedEntry.COLUMN_NAME_BLURB + TEXT_TYPE + COMMA_SEP +
                     FeedEntry.COLUMN_NAME_DATE + TEXT_TYPE + " )";
 
     private static final String CREATE_TABLE_USERS =
@@ -55,7 +51,7 @@ public class TweetsDbHelper extends SQLiteOpenHelper {
                     FeedEntry.COLUMN_NAME_FOLLOWING + TEXT_TYPE + " )";
 
     private static final String DELETE_TWEETFEED_ENTRIES =
-            "DROP TABLE IF EXISTS " + FeedEntry.TABLE_TWEETFEED;
+            "DROP TABLE IF EXISTS " + FeedEntry.TABLE_CHAOS_USERS;
     private static final String DELETE_USERS_ENTRIES =
             "DROP TABLE IF EXISTS " + FeedEntry.TABLE_USERS;
 
@@ -63,7 +59,7 @@ public class TweetsDbHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "tweeters.db";
 
-    public TweetsDbHelper(Context context) {
+    public CHAOSDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
     public void onCreate(SQLiteDatabase db) {
@@ -82,31 +78,29 @@ public class TweetsDbHelper extends SQLiteOpenHelper {
     }
 
     /*
-    * Creating TABLE_TWEETFEED
+    * Creating TABLE_CHAOS_USERS
     */
     public void addtoTweetFeedDB(JSONObject objInfo) throws JSONException {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(FeedEntry.COLUMN_NAME_ID, objInfo.getString("_id"));
         values.put(FeedEntry.COLUMN_NAME_USERNAME, objInfo.getString("username"));
-        values.put(FeedEntry.COLUMN_NAME_TWEET, objInfo.getString("tweet"));
+        values.put(FeedEntry.COLUMN_NAME_BLURB, objInfo.getString("tweet"));
         values.put(FeedEntry.COLUMN_NAME_DATE, objInfo.getString("date"));
 
         // insert row
-        long newRowId = db.insert(FeedEntry.TABLE_TWEETFEED, null, values);
+        long newRowId = db.insert(FeedEntry.TABLE_CHAOS_USERS, null, values);
         Log.v("ROW ID: ", ""+newRowId);
 
     }
-    public Cursor getTweetFeedDB(String date){
+    public Cursor getCHAOSFeedDB(String date){
         //Getting the query of the Main tweet feed
         String[] allCols = {FeedEntry._ID,
-                FeedEntry.COLUMN_NAME_ID,
                 FeedEntry.COLUMN_NAME_USERNAME,
-                FeedEntry.COLUMN_NAME_TWEET,
+                FeedEntry.COLUMN_NAME_BLURB,
                 FeedEntry.COLUMN_NAME_DATE};
         //Turning DB into string array, getting specific title of what is clicked
-        return this.getReadableDatabase().query(FeedEntry.TABLE_TWEETFEED,
+        return this.getReadableDatabase().query(FeedEntry.TABLE_CHAOS_USERS,
                 allCols, "date=" + "\"" + date + "\"", null, null, null, null);//"date=" + "\"" + date + "\"", null, null, null, null);
 
 //        tweetsdb.moveToFirst();
@@ -117,7 +111,7 @@ public class TweetsDbHelper extends SQLiteOpenHelper {
         //Checks if a tweet is stored in the TWEETFEED database
         SQLiteDatabase db = this.getWritableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM " + FeedEntry.TABLE_TWEETFEED + " WHERE " + "tweetid" + "= '" + id + "'", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + FeedEntry.TABLE_CHAOS_USERS + " WHERE " + "tweetid" + "= '" + id + "'", null);
 
         boolean exists = (cursor.getCount() > 0);
         cursor.close();

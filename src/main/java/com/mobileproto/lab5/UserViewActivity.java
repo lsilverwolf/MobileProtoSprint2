@@ -35,7 +35,7 @@ public class UserViewActivity extends Activity {
 
         try {
             //Getting the array with all Tweets
-            jParser.makeTweetList(feedURL);
+            jParser.makeCHAOSList(feedURL);
             allUserviewData = jParser.getAllData();
         }
         catch (Exception E){

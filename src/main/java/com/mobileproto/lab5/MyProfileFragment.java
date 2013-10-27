@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Created by evan on 9/25/13.
  */
-public class ConnectionFragment extends Fragment {
+public class MyProfileFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
