@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by kaustin on 10/5/13.
  */
-public class TweetFragment extends Fragment {
+public class MessageFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

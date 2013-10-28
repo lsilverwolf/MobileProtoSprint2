@@ -59,6 +59,7 @@ public class FeedListAdapter extends ArrayAdapter<FeedItem> {
 
         holder.userName.setText(item.userName);
         holder.text.setText(item.text);
+        holder.classYear.setText(item.year);
 
         return feedRow;
     }

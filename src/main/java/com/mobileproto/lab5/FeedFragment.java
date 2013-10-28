@@ -59,9 +59,12 @@ public class FeedFragment extends Fragment {
 
                 //Creating intent to pass information
                 Intent in = new Intent(getActivity(), DetailActivity.class);
-                in.putExtra("username", getUser);
-                in.putExtra("blurb", blurb);
-                in.putExtra("year", year);
+                in.putExtra("username", "Kai");
+                in.putExtra("blurb", "Some text about me");
+                in.putExtra("year", "2015");
+//                in.putExtra("username", getUser);
+//                in.putExtra("blurb", blurb);
+//                in.putExtra("year", year);
 
 
                 //Going to new display of the note

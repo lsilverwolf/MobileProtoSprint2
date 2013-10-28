@@ -11,7 +11,7 @@ import java.util.List;
 
 public class FeedActivity extends Activity {
 
-    public static String myname = "reaper";
+    public static String myname = "student";
     public static List<FeedItem> allData;
 //    public static CHAOSDbHelper dbHelper;
     Handler handler;
@@ -28,7 +28,7 @@ public class FeedActivity extends Activity {
         FeedFragment feedFragment = new FeedFragment();
         MyProfileFragment myProfileFragment = new MyProfileFragment();
         SearchFragment searchFragment = new SearchFragment();
-        //TweetFragment tweetFragment = new TweetFragment();
+        //MessageFragment tweetFragment = new MessageFragment();
 
         /*
          *  The following code is used to set up the tabs used for navigation.
