@@ -79,35 +79,32 @@ public class JSONParser {
     public void makeCHAOSList(String feedURL) throws JSONException, Exception {
 
         //Extracting Data and putting it in the feed
-        JSONArray allTweets = getJSONFromUrl(feedURL, "tweets");
+        JSONArray allUserData = getJSONFromUrl(feedURL, "userdata");
 
-        for (int i=0; i < allTweets.length(); i++){
+        for (int i=0; i < allUserData.length(); i++){
             try{
+                JSONObject udata = allUserData.getJSONObject(i);
                 //Unpacking tweet into displayable form
-                String username = allTweets.getJSONObject(i).get("username").toString();
-                String id = allTweets.getJSONObject(i).get("_id").toString();
-                String blurb = allTweets.getJSONObject(i).get("tweet").toString();
-                String year = allTweets.getJSONObject(i).get("date").toString();
+                String username = udata.get("username").toString();
+                String id = udata.get("_id").toString();
+                String blurb =  udata.get("tweet").toString();
+                String year = udata.get("date").toString();
 
                 //Checking if in Database; if not, add it;
 //                if (!FeedActivity.dbHelper.isInTweetsDB(id)){
-//                    FeedActivity.dbHelper.addtoTweetFeedDB(allTweets.getJSONObject(i));
+//                    FeedActivity.dbHelper.addtoTweetFeedDB(allUserData.getJSONObject(i));
 //                    System.out.println("ADDED TO DATABASE");
 //                }
 
                 //Adding to the main list
-                FeedItem feedTweet = new FeedItem("@" + username, blurb, year);
+                FeedItem feedTweet = new FeedItem(username, blurb, year);
                 allData.add(feedTweet);
-
-                checkMentions(allTweets.getJSONObject(i));
             }
             catch (JSONException E){
                 //Will throw if the JSONArray is not valid or null
                 System.out.print("JSON NOT FOUND");
             }
         }
-
-        makeConnections();
 
         System.out.println("ALL TWEETS RETRIEVED");
     }
@@ -116,64 +113,6 @@ public class JSONParser {
         return allData;
     }
 
-    public static void checkMentions(JSONObject tweetjson) throws JSONException{
-        //If user is mentioned in a tweet, add to allMentions
-        String username = "@" + tweetjson.get("username").toString();
-        String blurb = tweetjson.get("tweet").toString();
-        String myname = "@" + FeedActivity.myname;
-
-        //Checks to see if the user is mentioned in the tweets
-        if(blurb.contains(myname)){
-            MentionNotification mention = new MentionNotification(username, myname, blurb);
-            //Then add it
-            allConnections.add(mention);
-        }
-
-    }
-
-    public static void makeConnections() throws JSONException, Exception {
-
-        //Getting followers
-        String followURL = "http://twitterproto.herokuapp.com/" + FeedActivity.myname + "/following";
-
-        //Passing URL to Asynced task, retrieving JSON string from internet
-        urlJSON.execute(followURL);
-
-        JSONObject json = new JSONObject(urlJSON.get());
-        JSONArray jsonarray = json.getJSONArray("following");
-
-        //Converting String
-        String myname = "@" + FeedActivity.myname;
-
-        for (int i=0; i < jsonarray.length(); i++){
-            String username = "@" + jsonarray.get(i);
-            FollowNotification follow = new FollowNotification(username, myname);
-            allConnections.add(follow);
-        }
-
-    }
-//    public void followingsToDB() throws Exception {
-//        //Getting people user follows
-//        String followURL = "http://twitterproto.herokuapp.com/" + FeedActivity.myname + "/following";
-//        String followerURL = "http://twitterproto.herokuapp.com/" + FeedActivity.myname + "/followers";
-//
-//        //Passing URL to Asynced task, retrieving JSON string from internet
-//        urlJSON.execute(followURL);
-//
-//        JSONObject followingjson = new JSONObject(urlJSON.get());
-//        JSONArray followingarray = followingjson.getJSONArray("following");
-//
-//        urlJSON.execute(followerURL);
-//        JSONObject followerjson = new JSONObject(urlJSON.get());
-//        JSONArray followerarray = followerjson.getJSONArray("followers");
-//
-////        FeedActivity.dbHelper.addtoUsersDB(FeedActivity.myname, followerarray, followingarray);
-//
-//    }
-
-    public static List<FeedNotification> getAllConnections(){
-        return allConnections;
-    }
 
     public List<FeedItem> makeSearchList (String feedURL) throws JSONException, Exception {
 

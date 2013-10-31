@@ -37,16 +37,22 @@ public class FeedFragment extends Fragment {
         ListView feedList = (ListView) v.findViewById(R.id.feedList);
         feedList.setAdapter(feedListAdapter);
 
+
         feedList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 System.out.print("CLICKED ME");
                 //Getting title (id) of what is clicked
-                TextView textView = (TextView) view.findViewById(R.id.feedItemUser);
+
+                final TextView textView = (TextView) view.findViewById(R.id.feedItemUser);
+                textView.setText("Lucy");
+                final TextView blurbText = (TextView) view.findViewById(R.id.feedText);
+                blurbText.setText("I love cats and fires.");
+                final TextView yearText = (TextView) view.findViewById(R.id.classYearText);
+                yearText.setText("2016");
+
                 String getUser = textView.getText().toString();
-                TextView blurbText = (TextView) view.findViewById(R.id.feedText);
                 String blurb = blurbText.getText().toString();
-                TextView yearText = (TextView) view.findViewById(R.id.classYearText);
                 String year = yearText.getText().toString();
 
 //                Cursor chaosdb = FeedActivity.dbHelper.getCHAOSFeedDB(getUser);
@@ -59,12 +65,12 @@ public class FeedFragment extends Fragment {
 
                 //Creating intent to pass information
                 Intent in = new Intent(getActivity(), DetailActivity.class);
-                in.putExtra("username", "Kai");
-                in.putExtra("blurb", "Some text about me");
-                in.putExtra("year", "2015");
-//                in.putExtra("username", getUser);
-//                in.putExtra("blurb", blurb);
-//                in.putExtra("year", year);
+//                in.putExtra("username", "Kai");
+//                in.putExtra("blurb", "Some text about me");
+//                in.putExtra("year", "2015");
+                in.putExtra("username", getUser);
+                in.putExtra("blurb", blurb);
+                in.putExtra("year", year);
 
 
                 //Going to new display of the note

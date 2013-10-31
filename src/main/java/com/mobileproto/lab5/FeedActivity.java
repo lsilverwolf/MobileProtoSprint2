@@ -61,8 +61,7 @@ public class FeedActivity extends Activity {
     public void updateDB(){
         //Getting JSON data
         //URL to GET all tweet data from the FEED
-        String feedURL = "http://twitterproto.herokuapp.com/tweets";
-
+        String feedURL = "http://mysterious-lake-7154.herokuapp.com/";
         // Creating JSON Parser instance
         JSONParser jParser = new JSONParser();
 
@@ -73,7 +72,7 @@ public class FeedActivity extends Activity {
         }
         catch (Exception e){
             e.printStackTrace();
-            System.out.println("JPARSER CANNOT RETRIEVE TWEETS");
+            System.out.println("JPARSER CANNOT RETRIEVE");
         }
 
     }

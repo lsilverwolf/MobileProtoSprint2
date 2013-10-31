@@ -11,7 +11,9 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,15 +33,17 @@ public class MyProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.connections_fragment, null);
+        View v = inflater.inflate(R.layout.detail_view, null);
 
-        // Get all the connections (followers, mentions, etc.)
-        List<FeedNotification> notifications = JSONParser.getAllConnections();
-
-        ConnectionListAdapter connectionListAdapter = new ConnectionListAdapter(this.getActivity(), notifications);
-        ListView connectionList = (ListView) v.findViewById(R.id.connectionListView);
-
-        connectionList.setAdapter(connectionListAdapter);
+        final TextView username = (TextView) getActivity().findViewById(R.id.feedItemUser);
+        final TextView tweet = (TextView) getActivity().findViewById(R.id.feedText);
+        final TextView year = (TextView) getActivity().findViewById(R.id.classYearText);
+        final TextView help = (TextView) getActivity().findViewById(R.id.listHelpTitle);
+        final TextView answer = (TextView) getActivity().findViewById(R.id.listAnswerTitle);
+        final ListView helpList = (ListView) getActivity().findViewById(R.id.listHelp);
+        final ListView answerList = (ListView) getActivity().findViewById(R.id.listAnswer);
+        final Button hiButton = (Button) getActivity().findViewById(R.id.hiButton);
+        Button messageButton = (Button) getActivity().findViewById(R.id.messageButton);
 
         return v;
     }
