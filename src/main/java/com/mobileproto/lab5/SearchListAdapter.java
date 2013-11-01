@@ -19,7 +19,7 @@ public class SearchListAdapter extends ArrayAdapter<FeedItem> {
     private final List<FeedItem> data;
 
     public SearchListAdapter(Context context,  List<FeedItem> data){
-        super(context, R.layout.search_item, data);
+        super(context, R.layout.feed_item, data);
         this.context = context;
         this.data = data;
         System.out.println("CONTEXT: " + this.context + ", DATA: " + this.data);
@@ -41,10 +41,10 @@ public class SearchListAdapter extends ArrayAdapter<FeedItem> {
 
         if(searchRow == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            searchRow = inflater.inflate(R.layout.search_item, parent, false);
+            searchRow = inflater.inflate(R.layout.feed_item, parent, false);
             holder = new SearchItemHolder();
-            holder.userName = (TextView) searchRow.findViewById(R.id.searchItemUser);
-            holder.text = (TextView) searchRow.findViewById(R.id.searchText);
+            holder.userName = (TextView) searchRow.findViewById(R.id.feedUserName);
+            holder.text = (TextView) searchRow.findViewById(R.id.blurbText);
 
             searchRow.setTag(holder);
         } else {

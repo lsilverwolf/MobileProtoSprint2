@@ -10,6 +10,7 @@
         android:id="@+id/searchField"
         android:layout_gravity="left|center_vertical"
         android:layout_toLeftOf="@+id/searchButton"
+        android:hint="Enter in a subject"
         android:layout_alignParentLeft="true" />
 
     <Button
@@ -27,4 +28,5 @@
         android:id="@+id/searchResults"
         android:layout_below="@+id/searchButton"
         android:layout_alignParentLeft="true" />
+
 </RelativeLayout>

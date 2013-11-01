@@ -43,16 +43,12 @@ public class JSONParser {
     static InputStream is = null;
     static JSONObject jObj = null;
     static String json = "";
-    public static List<FeedItem> allData; //All the data of the main feed
-    public static List<FeedNotification> allMentions; //All tweets where user is mentioned
-    public static List<FeedNotification> allConnections; //All connections of the user
+    public static List<FeedItem> allMainFeedData; //All the data of the main feed
     public static BackgroundTask urlJSON;
 
     // constructor
     public JSONParser() {
-        allData = new ArrayList<FeedItem>();
-        allMentions = new ArrayList<FeedNotification>();
-        allConnections = new ArrayList<FeedNotification>();
+        allMainFeedData = new ArrayList<FeedItem>();
         urlJSON = new BackgroundTask();
     }
 
@@ -90,15 +86,9 @@ public class JSONParser {
                 String blurb =  udata.get("tweet").toString();
                 String year = udata.get("date").toString();
 
-                //Checking if in Database; if not, add it;
-//                if (!FeedActivity.dbHelper.isInTweetsDB(id)){
-//                    FeedActivity.dbHelper.addtoTweetFeedDB(allUserData.getJSONObject(i));
-//                    System.out.println("ADDED TO DATABASE");
-//                }
-
                 //Adding to the main list
                 FeedItem feedTweet = new FeedItem(username, blurb, year);
-                allData.add(feedTweet);
+                allMainFeedData.add(feedTweet);
             }
             catch (JSONException E){
                 //Will throw if the JSONArray is not valid or null
@@ -110,7 +100,7 @@ public class JSONParser {
     }
 
     public List<FeedItem> getAllData(){
-        return allData;
+        return allMainFeedData;
     }
 
 

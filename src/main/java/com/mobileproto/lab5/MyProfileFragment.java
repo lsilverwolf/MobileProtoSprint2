@@ -42,8 +42,6 @@ public class MyProfileFragment extends Fragment {
         final TextView answer = (TextView) getActivity().findViewById(R.id.listAnswerTitle);
         final ListView helpList = (ListView) getActivity().findViewById(R.id.listHelp);
         final ListView answerList = (ListView) getActivity().findViewById(R.id.listAnswer);
-        final Button hiButton = (Button) getActivity().findViewById(R.id.hiButton);
-        Button messageButton = (Button) getActivity().findViewById(R.id.messageButton);
 
         return v;
     }

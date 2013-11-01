@@ -79,24 +79,4 @@
         android:layout_marginBottom="8dp"
         android:layout_marginRight="8dp" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hi"
-        android:id="@+id/hiButton"
-        android:layout_below="@+id/feedItemUser"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="8dp" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Message"
-        android:id="@+id/messageButton"
-        android:layout_alignTop="@+id/hiButton"
-        android:layout_toLeftOf="@+id/hiButton"
-        android:layout_marginRight="8dp" />
-
 </RelativeLayout>

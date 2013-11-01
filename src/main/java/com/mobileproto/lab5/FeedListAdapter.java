@@ -22,6 +22,7 @@ public class FeedListAdapter extends ArrayAdapter<FeedItem> {
     private final List<FeedItem> data;
 
     public FeedListAdapter(Context context,  List<FeedItem> data){
+        //Makes layout of mini-profiles
         super(context, R.layout.feed_item, data);
         this.context = context;
         this.data = data;
@@ -45,10 +46,12 @@ public class FeedListAdapter extends ArrayAdapter<FeedItem> {
         if(feedRow == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             feedRow = inflater.inflate(R.layout.feed_item, parent, false);
+
+            //Passing data of Feed Item to min-profile
             holder = new FeedItemHolder();
-            holder.userName = (TextView) feedRow.findViewById(R.id.feedItemUser);
-            holder.text = (TextView) feedRow.findViewById(R.id.feedText);
-            holder.classYear = (TextView) feedRow.findViewById(R.id.classYearText);
+            holder.userName = (TextView) feedRow.findViewById(R.id.feedUserName);
+            holder.text = (TextView) feedRow.findViewById(R.id.blurbText);
+            holder.classYear = (TextView) feedRow.findViewById(R.id.classYearTextView);
 
             feedRow.setTag(holder);
         } else {

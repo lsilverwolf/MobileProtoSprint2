@@ -5,9 +5,9 @@ package com.mobileproto.lab5;
  */
 public class FeedItem {
 
-    public String text;
     public String userName;
     public String year;
+    public String text;
 
     public FeedItem(String userName, String text, String year){
         this.userName = userName;

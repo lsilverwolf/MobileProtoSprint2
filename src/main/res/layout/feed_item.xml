@@ -10,7 +10,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:clickable="true"
-        android:id="@+id/feedItemUser"
+        android:id="@+id/feedUserName"
         android:layout_alignParentTop="true"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
@@ -21,8 +21,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
-        android:id="@+id/feedText"
-        android:layout_below="@+id/feedItemUser"
+        android:id="@+id/blurbText"
+        android:layout_below="@+id/feedUserName"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp" />
 
@@ -34,7 +34,7 @@
         android:id="@+id/classYearTextView"
         android:layout_marginLeft="20dp"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/feedItemUser"
+        android:layout_toRightOf="@+id/feedUserName"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp" />
 

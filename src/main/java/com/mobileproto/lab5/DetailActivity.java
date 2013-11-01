@@ -21,9 +21,9 @@ public class DetailActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        final List<FeedItem> allData;
-        allData = FeedActivity.allData;
+
         setContentView(R.layout.detail_view);
 
         Intent intent = getIntent();

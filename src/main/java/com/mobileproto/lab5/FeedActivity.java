@@ -4,7 +4,6 @@ import android.app.ActionBar;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.app.Activity;
-import android.os.Handler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,8 +12,6 @@ public class FeedActivity extends Activity {
 
     public static String myname = "student";
     public static List<FeedItem> allData;
-//    public static CHAOSDbHelper dbHelper;
-    Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +19,6 @@ public class FeedActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         allData = new ArrayList<FeedItem>();
-//        dbHelper = new CHAOSDbHelper(this);
 
         // Define view fragments
         FeedFragment feedFragment = new FeedFragment();
@@ -53,12 +49,12 @@ public class FeedActivity extends Activity {
 
         actionBar.setStackedBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.android_dark_blue)));
 
-        updateDB();
+        pullFromHeroku();
 
 
     }
 
-    public void updateDB(){
+    public void pullFromHeroku(){
         //Getting JSON data
         //URL to GET all tweet data from the FEED
         String feedURL = "http://mysterious-lake-7154.herokuapp.com/";
