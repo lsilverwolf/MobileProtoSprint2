@@ -42,7 +42,7 @@ public class SearchFragment extends Fragment {
         Button search = (Button) v.findViewById(R.id.searchButton);
         final Context context = this.getActivity();
 
-        search.setOnClickListener(new View.OnClickListener() {
+        /*search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -72,7 +72,7 @@ public class SearchFragment extends Fragment {
 
             }
 
-        });
+        });*/
 
         search.setFocusable(false);
 

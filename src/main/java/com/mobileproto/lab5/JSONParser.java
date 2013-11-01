@@ -76,23 +76,19 @@ public class JSONParser {
 
         //Extracting Data and putting it in the feed
         JSONArray allUserData = getJSONFromUrl(feedURL, "userdata");
+        System.out.println(allUserData);
 
         for (int i=0; i < allUserData.length(); i++){
             try{
-                JSONObject udata = allUserData.getJSONObject(i);
-                //Unpacking tweet into displayable form
-                String username = udata.get("username").toString();
-                String id = udata.get("_id").toString();
-                String blurb =  udata.get("tweet").toString();
-                String year = udata.get("date").toString();
+                JSONObject userData = allUserData.getJSONObject(i);
 
                 //Adding to the main list
-                FeedItem feedTweet = new FeedItem(username, blurb, year);
+                FeedItem feedTweet = new FeedItem(userData);
                 allMainFeedData.add(feedTweet);
             }
             catch (JSONException E){
                 //Will throw if the JSONArray is not valid or null
-                System.out.print("JSON NOT FOUND");
+                System.out.print("JSON DATA NOT FOUND IN URLDATA");
             }
         }
 
@@ -104,20 +100,18 @@ public class JSONParser {
     }
 
 
-    public List<FeedItem> makeSearchList (String feedURL) throws JSONException, Exception {
+    public List<FeedItem> dataToFeedItem (String feedURL) throws JSONException, Exception {
 
         //Extracting Data and putting it in the search list
         List<FeedItem> allSearchData = new ArrayList<FeedItem>();
-        JSONArray allTweets = getJSONFromUrl(feedURL, "tweets");
+        JSONArray allDataFromURL = getJSONFromUrl(feedURL, "userdata");
 
-        for (int i=0; i < allTweets.length(); i++){
+        for (int i=0; i < allDataFromURL.length(); i++){
             try{
-                //Unpacking tweet into displayable form
-                String username = "@" + allTweets.getJSONObject(i).get("username").toString();
-                String tweet = allTweets.getJSONObject(i).get("tweet").toString();
-                String date = allTweets.getJSONObject(i).get("date").toString();
-                FeedItem feedTweet = new FeedItem(username, tweet, date);
-                allSearchData.add(feedTweet);
+                JSONObject userInfo = allDataFromURL.getJSONObject(i);
+
+                FeedItem feedProfile = new FeedItem(userInfo);
+                allSearchData.add(feedProfile);
             }
             catch (JSONException E){
                 //Will throw if the JSONArray is not valid or null
@@ -130,41 +124,6 @@ public class JSONParser {
         return allSearchData;
     }
 
-    public void postTweetToUrl(final String urlToPost, final String daMessage) {
-        Thread t = new Thread() {
-
-            public void run() {
-                Looper.prepare(); //For Preparing Message Pool for the child Thread
-                HttpClient client = new DefaultHttpClient();
-                HttpConnectionParams.setConnectionTimeout(client.getParams(), 10000); //Timeout Limit
-                HttpResponse response;
-                JSONObject json = new JSONObject();
-
-                try {
-                    HttpPost post = new HttpPost(urlToPost);
-                    json.put("tweet", daMessage);
-                    StringEntity se = new StringEntity( json.toString());
-                    se.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
-                    post.setEntity(se);
-                    response = client.execute(post);
-
-                    /*Checking response */
-                    if(response!=null){
-                        InputStream in = response.getEntity().getContent(); //Get the data in the entity
-                    }
-
-                } catch(Exception e) {
-                    e.printStackTrace();
-                    Log.e("Error", "Cannot Estabilish Connection");
-                }
-
-                Looper.loop(); //Loop in the message queue
-            }
-        };
-
-        t.start();
-    }
-
 
     private class BackgroundTask extends AsyncTask<String, Void, String>{
 
@@ -174,6 +133,7 @@ public class JSONParser {
             // Making HTTP request
             try {
                 // defaultHttpClient
+
                 DefaultHttpClient httpClient = new DefaultHttpClient();
                 //Calling GET to specified URL
                 HttpGet httpGet = new HttpGet(url[0]);
@@ -183,10 +143,13 @@ public class JSONParser {
                 is = httpEntity.getContent();
 
             } catch (UnsupportedEncodingException e) {
+                System.out.print("UNSUPPORTED ENCODING EXCEPTION YOU INCOMPETENT BLOCKHEAD");
                 e.printStackTrace();
             } catch (ClientProtocolException e) {
+                System.out.print("CLIENT PROTOCOL YOU BLOODY IDIOT");
                 e.printStackTrace();
             } catch (IOException e) {
+                System.out.print("Cheese");
                 e.printStackTrace();
             }
 

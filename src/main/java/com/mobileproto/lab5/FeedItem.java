@@ -1,18 +1,25 @@
 package com.mobileproto.lab5;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created by evan on 9/25/13.
  */
 public class FeedItem {
 
-    public String userName;
+    public String name;
     public String year;
-    public String text;
+    public String blurb;
+    public JSONObject[] inbox;
+    public String[] listwant;
+    public String[] listhelp;
 
-    public FeedItem(String userName, String text, String year){
-        this.userName = userName;
-        this.text = text;
-        this.year = year;
+    public FeedItem(JSONObject userData) throws JSONException{
+        //Unpacking
+        this.name = userData.get("name").toString();
+        this.blurb = userData.get("blurb").toString();
+        this.year = userData.get("year").toString();
     }
 
 }
