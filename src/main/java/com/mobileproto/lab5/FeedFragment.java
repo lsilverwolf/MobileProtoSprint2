@@ -46,15 +46,11 @@ public class FeedFragment extends Fragment {
                 final TextView yearText = (TextView) view.findViewById(R.id.classYearTextView);
 
                 String getUser = textView.getText().toString();
-                String blurb = blurbText.getText().toString();
-                String year = yearText.getText().toString();
 
                 //Creating intent to pass information
                 Intent in = new Intent(getActivity(), DetailActivity.class);
 
                 in.putExtra("username", getUser);
-                in.putExtra("blurb", blurb);
-                in.putExtra("year", year);
 
                 //Going to new display of the note
                 startActivity(in);

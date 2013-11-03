@@ -886,7 +886,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f07002f;
         public static final int action_mode_bar_stub=0x7f07002e;
         public static final int action_mode_close_button=0x7f070022;
-        public static final int action_settings=0x7f070053;
+        public static final int action_settings=0x7f070054;
         public static final int activity_chooser_view_content=0x7f070023;
         public static final int always=0x7f07000f;
         public static final int beginning=0x7f07000a;
@@ -907,7 +907,7 @@ containing a value of this type.
         public static final int feedText=0x7f070044;
         public static final int feedUserName=0x7f07004b;
         public static final int fragmentContainer=0x7f070042;
-        public static final int hiButton=0x7f070051;
+        public static final int hiButton=0x7f070052;
         public static final int home=0x7f070017;
         public static final int homeAsUp=0x7f070005;
         public static final int icon=0x7f070028;
@@ -918,9 +918,10 @@ containing a value of this type.
         public static final int listAnswerTitle=0x7f070048;
         public static final int listHelp=0x7f070047;
         public static final int listHelpTitle=0x7f070046;
+        public static final int listItem=0x7f07004e;
         public static final int listMode=0x7f070001;
         public static final int list_item=0x7f070027;
-        public static final int messageButton=0x7f070052;
+        public static final int messageButton=0x7f070053;
         public static final int middle=0x7f07000b;
         public static final int miniProfileList=0x7f07004a;
         public static final int never=0x7f07000d;
@@ -931,9 +932,9 @@ containing a value of this type.
         public static final int radio=0x7f07002d;
         public static final int right_container=0x7f070032;
         public static final int right_icon=0x7f070033;
-        public static final int searchButton=0x7f07004f;
-        public static final int searchField=0x7f07004e;
-        public static final int searchResults=0x7f070050;
+        public static final int searchButton=0x7f070050;
+        public static final int searchField=0x7f07004f;
+        public static final int searchResults=0x7f070051;
         public static final int search_badge=0x7f070038;
         public static final int search_bar=0x7f070037;
         public static final int search_button=0x7f070039;
@@ -993,9 +994,10 @@ containing a value of this type.
         public static final int detail_view=0x7f030019;
         public static final int feed_fragment=0x7f03001a;
         public static final int feed_item=0x7f03001b;
-        public static final int search_fragment=0x7f03001c;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001d;
-        public static final int user_fragment=0x7f03001e;
+        public static final int list_view=0x7f03001c;
+        public static final int search_fragment=0x7f03001d;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001e;
+        public static final int user_fragment=0x7f03001f;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;

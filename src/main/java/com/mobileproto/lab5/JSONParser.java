@@ -92,7 +92,7 @@ public class JSONParser {
             }
         }
 
-        System.out.println("ALL TWEETS RETRIEVED");
+        System.out.println("ALL USERS FROM SERVER RETRIEVED");
     }
 
     public List<FeedItem> getAllData(){

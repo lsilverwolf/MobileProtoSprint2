@@ -34,9 +34,7 @@ public class FeedListAdapter extends ArrayAdapter<FeedItem> {
         TextView userName;
         TextView text;
         TextView classYear;
-
     }
-
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
