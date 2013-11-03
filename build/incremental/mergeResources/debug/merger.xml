@@ -4475,6 +4475,26 @@ false
                 path="/home/kaustin/MobileProtoSprint2/src/main/res/layout/list_view.xml"
                 qualifiers=""
                 type="layout" />
+            <file
+                name="hi_view"
+                path="/home/kaustin/MobileProtoSprint2/src/main/res/layout/hi_view.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="inbox_item"
+                path="/home/kaustin/MobileProtoSprint2/src/main/res/layout/inbox_item.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="inbox_view"
+                path="/home/kaustin/MobileProtoSprint2/src/main/res/layout/inbox_view.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="message_view"
+                path="/home/kaustin/MobileProtoSprint2/src/main/res/layout/message_view.xml"
+                qualifiers=""
+                type="layout" />
         </source>
         <source path="/home/kaustin/MobileProtoSprint2/build/res/rs/debug" />
     </dataSet>

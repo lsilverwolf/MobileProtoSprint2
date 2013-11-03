@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,14 +48,19 @@ public class DetailActivity extends Activity {
         messageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //go to MessageFragment to make a message to the user
+                //Go to the message View
+                Intent i = new Intent(getApplicationContext(), MessageActivity.class);
+                startActivity(i);
             }
         });
 
         hiButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //log a "hi"
+                //Go to the "Hi sent" view
+                Intent in = new Intent(getApplicationContext(), HiActivity.class);
+                in.putExtra("username", username.toString());
+                startActivity(in);
             }
         });
 
