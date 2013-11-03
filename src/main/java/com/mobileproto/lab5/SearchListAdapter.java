@@ -29,6 +29,7 @@ public class SearchListAdapter extends ArrayAdapter<FeedItem> {
 
         TextView userName;
         TextView text;
+        TextView classYear;
     }
 
 
@@ -42,9 +43,12 @@ public class SearchListAdapter extends ArrayAdapter<FeedItem> {
         if(searchRow == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             searchRow = inflater.inflate(R.layout.feed_item, parent, false);
+
+            //Passing data of Feed Item to min-profile
             holder = new SearchItemHolder();
             holder.userName = (TextView) searchRow.findViewById(R.id.feedUserName);
             holder.text = (TextView) searchRow.findViewById(R.id.blurbText);
+            holder.classYear = (TextView) searchRow.findViewById(R.id.classYearTextView);
 
             searchRow.setTag(holder);
         } else {
@@ -55,7 +59,9 @@ public class SearchListAdapter extends ArrayAdapter<FeedItem> {
 
         holder.userName.setText(item.name);
         holder.text.setText(item.blurb);
+        holder.classYear.setText(item.year);
 
         return searchRow;
     }
+
 }

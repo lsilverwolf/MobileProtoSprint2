@@ -78,7 +78,7 @@ public class DetailActivity extends Activity {
             //For help stuff
             ArrayAdapter<String> helpadapter = new ArrayAdapter(this,
                     R.layout.list_view,
-                    jsonTOArray(userthis.listhelp)){
+                    userthis.listwant){
                 public View getView(final int position, View convertView, ViewGroup parent) {
                     View view = View.inflate(DetailActivity.this, R.layout.list_view, null);
                     final TextView textView = (TextView) view.findViewById(R.id.listItem);
@@ -90,7 +90,7 @@ public class DetailActivity extends Activity {
 
             //For help stuff
             ArrayAdapter<String> answeradapter =
-                    new ArrayAdapter(this,R.layout.list_view, jsonTOArray(userthis.listwant)){
+                    new ArrayAdapter(this,R.layout.list_view, userthis.listhelp){
                     @Override
                     public View getView(final int position, View convertView, ViewGroup parent) {
                         View view = View.inflate(DetailActivity.this, R.layout.list_view, null);
@@ -106,14 +106,6 @@ public class DetailActivity extends Activity {
             System.out.println("ARRAY ADAPTER IS BROKEN");
         }
 
-    }
-
-    private ArrayList<String> jsonTOArray(JSONArray json) throws JSONException{
-        ArrayList<String> nue = new ArrayList<String>();
-        for (int i=0; i < json.length(); i++){
-            nue.add(json.get(i).toString());
-        }
-        return nue;
     }
 
 }
