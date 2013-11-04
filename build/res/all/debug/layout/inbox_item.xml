@@ -4,4 +4,25 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Medium Text"
+        android:clickable="true"
+        android:id="@+id/inboxSender"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/inboxMessage"
+        android:layout_below="@+id/feedItemUser"
+        android:layout_marginLeft="8dp" />
+
 </LinearLayout><!-- From: file:/home/kaustin/MobileProtoSprint2/src/main/res/layout/inbox_item.xml -->

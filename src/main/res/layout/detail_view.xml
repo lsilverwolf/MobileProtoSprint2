@@ -1,157 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     android:orientation="vertical" android:layout_width="match_parent"
-
     android:layout_height="match_parent">
 
     <TextView
-
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
-
         android:textAppearance="?android:attr/textAppearanceLarge"
-
         android:text="Lyra Silverwolf"
-
         android:clickable="true"
-
         android:id="@+id/feedItemUser"
-
         android:layout_below="@+id/inboxButton"
-
-        android:layout_alignLeft="@+id/feedText" />
-
-    <TextView
-
-        android:layout_width="wrap_content"
-
-        android:layout_height="wrap_content"
-
-        android:textAppearance="?android:attr/textAppearanceMedium"
-
-        android:text="Aside from being an ECE at Olin, I’m currently the Editor in Chief of Frankly Speaking, the school newspaper and I’m working on a novel for NaNoWriMo. I’m also interested in hiking and robotics."
-
-        android:id="@+id/feedText"
-
-        android:layout_below="@+id/feedItemUser"
-
-        android:layout_marginTop="8dp"
-
-        android:layout_marginLeft="8dp"
-
-        android:layout_marginRight="8dp"/>
+        android:layout_alignParentLeft="true" />
 
     <TextView
-
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
-
         android:textAppearance="?android:attr/textAppearanceLarge"
-
         android:text="2015"
-
         android:id="@+id/classYearText"
-
         android:layout_alignTop="@+id/feedItemUser"
+        android:layout_alignParentRight="true"/>
 
-        android:layout_alignRight="@+id/feedText" />
-
-    <TextView
-
-        android:layout_width="wrap_content"
-
+    <ScrollView
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/feedItemUser">
 
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
 
-        android:text="I am curious about:"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Aside from being an ECE at Olin, I’m currently the Editor in Chief of Frankly Speaking, the school newspaper and I’m working on a novel for NaNoWriMo. I’m also interested in hiking and robotics."
+                android:id="@+id/feedText"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"/>
 
-        android:id="@+id/listHelpTitle"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="I am curious about:"
+                android:id="@+id/listHelpTitle"
+                android:layout_below="@+id/feedText"
+                android:layout_alignLeft="@+id/listHelp"
+                android:layout_marginTop="16dp" />
 
-        android:layout_below="@+id/feedText"
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/listHelp"
+                android:layout_marginTop="8dp"
+                android:layout_below="@+id/listHelpTitle"
+                android:layout_alignParentRight="true"
+                android:layout_above="@+id/listAnswerTitle"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="8dp"/>
 
-        android:layout_alignLeft="@+id/listHelp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="I know about:"
+                android:id="@+id/listAnswerTitle"
+                android:layout_below="@+id/listHelpTitle"
+                android:layout_alignLeft="@+id/listHelp"
+                android:layout_marginTop="8dp" />
 
-        android:layout_marginTop="16dp" />
-
-    <ListView
-
-        android:layout_width="wrap_content"
-
-        android:layout_height="wrap_content"
-
-        android:id="@+id/listHelp"
-
-        android:layout_marginTop="8dp"
-
-        android:layout_below="@+id/listHelpTitle"
-
-        android:layout_alignParentRight="true"
-
-        android:layout_above="@+id/listAnswerTitle"
-
-        android:layout_marginRight="8dp"
-
-        android:layout_marginLeft="8dp"
-
-        android:layout_marginBottom="8dp"/>
-
-    <TextView
-
-        android:layout_width="wrap_content"
-
-        android:layout_height="wrap_content"
-
-        android:textAppearance="?android:attr/textAppearanceMedium"
-
-        android:text="I know about:"
-
-        android:id="@+id/listAnswerTitle"
-
-        android:layout_below="@+id/listHelpTitle"
-
-        android:layout_alignLeft="@+id/listHelp"
-
-        android:layout_marginTop="8dp" />
-
-    <ListView
-
-        android:layout_width="wrap_content"
-
-        android:layout_height="wrap_content"
-
-        android:id="@+id/listAnswer"
-
-        android:layout_below="@+id/listAnswerTitle"
-
-        android:layout_alignLeft="@+id/listAnswerTitle"
-
-        android:layout_marginTop="8dp"
-
-        android:layout_marginBottom="8dp"
-
-        android:layout_marginRight="8dp" />
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/listAnswer"
+                android:layout_below="@+id/listAnswerTitle"
+                android:layout_alignLeft="@+id/listAnswerTitle"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="8dp" />
+        </LinearLayout>
+    </ScrollView>
 
     <Button
-
         android:layout_width="fill_parent"
-
         android:layout_height="wrap_content"
-
         android:text="My Inbox"
-
         android:id="@+id/inboxButton"
-
         android:layout_alignParentTop="true"
-
         android:layout_centerHorizontal="true"
-
         android:layout_marginTop="8dp"
-
         android:layout_marginBottom="8dp"/>
 
 </RelativeLayout>

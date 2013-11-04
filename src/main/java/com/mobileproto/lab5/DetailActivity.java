@@ -43,14 +43,15 @@ public class DetailActivity extends Activity {
         final ListView helpList = (ListView) findViewById(R.id.listHelp);
         final ListView answerList = (ListView) findViewById(R.id.listAnswer);
         final Button hiButton = (Button) findViewById(R.id.hiButton);
-        Button messageButton = (Button) findViewById(R.id.messageButton);
+        final Button messageButton = (Button) findViewById(R.id.messageButton);
 
         messageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Go to the message View
-                Intent i = new Intent(getApplicationContext(), MessageActivity.class);
-                startActivity(i);
+                Intent in = new Intent(getApplicationContext(), MessageActivity.class);
+                in.putExtra("username", username.toString());
+                startActivity(in);
             }
         });
 

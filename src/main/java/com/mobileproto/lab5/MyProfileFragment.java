@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,10 +39,20 @@ public class MyProfileFragment extends Fragment {
         final TextView username = (TextView) getActivity().findViewById(R.id.feedItemUser);
         final TextView tweet = (TextView) getActivity().findViewById(R.id.feedText);
         final TextView year = (TextView) getActivity().findViewById(R.id.classYearText);
-        final TextView help = (TextView) getActivity().findViewById(R.id.listHelpTitle);
-        final TextView answer = (TextView) getActivity().findViewById(R.id.listAnswerTitle);
-        final ListView helpList = (ListView) getActivity().findViewById(R.id.listHelp);
-        final ListView answerList = (ListView) getActivity().findViewById(R.id.listAnswer);
+        final TextView help = (TextView) v.findViewById(R.id.listHelpTitle);
+        final TextView answer = (TextView) v.findViewById(R.id.listAnswerTitle);
+        final ListView helpList = (ListView) v.findViewById(R.id.listHelp);
+        final ListView answerList = (ListView) v.findViewById(R.id.listAnswer);
+        final Button inboxButton = (Button) v.findViewById(R.id.inboxButton);
+
+        inboxButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Go to the "Hi sent" view
+                Intent in = new Intent(getActivity(), InboxActivity.class);
+                startActivity(in);
+            }
+        });
 
         return v;
     }

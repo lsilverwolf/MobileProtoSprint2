@@ -41,11 +41,11 @@ public class FeedFragment extends Fragment {
                 System.out.print("CLICKED ME");
                 //Getting title (id) of what is clicked
 
-                final TextView textView = (TextView) view.findViewById(R.id.feedUserName);
+                final TextView username = (TextView) view.findViewById(R.id.feedUserName);
                 final TextView blurbText = (TextView) view.findViewById(R.id.blurbText);
                 final TextView yearText = (TextView) view.findViewById(R.id.classYearTextView);
 
-                String getUser = textView.getText().toString();
+                String getUser = username.getText().toString();
 
                 //Creating intent to pass information
                 Intent in = new Intent(getActivity(), DetailActivity.class);
