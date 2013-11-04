@@ -11,10 +11,7 @@
         android:text="Medium Text"
         android:clickable="true"
         android:id="@+id/feedUserName"
-        android:layout_alignParentTop="true"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp" />
+        android:layout_alignParentTop="true"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,8 +20,7 @@
         android:text="Small Text"
         android:id="@+id/blurbText"
         android:layout_below="@+id/feedUserName"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp" />
+        android:layout_marginTop="8dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,10 +28,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/classYearTextView"
-        android:layout_marginLeft="20dp"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/feedUserName"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp" />
+        android:layout_alignParentRight="true"/>
 
 </RelativeLayout>
