@@ -13,35 +13,33 @@ import java.util.List;
 /**
  * Created by kaustin on 11/3/13.
  */
-public class InboxListAdapter extends ArrayAdapter<InboxItem> {
+public class InboxListAdapter extends ArrayAdapter {
 
     private final Activity activity;
     private final List<InboxItem> data;
 
-    public InboxListAdapter(Activity activity,  List<InboxItem> data){
+    public InboxListAdapter(Activity activity, List<InboxItem> data){
         super(activity, R.layout.inbox_item, data);
         this.activity = activity;
         this.data = data;
     }
 
     private class InboxItemHolder{
-
         TextView userName;
         TextView message;
-
     }
 
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
-        System.out.println("GETTING SEARCH LIST VIEW");
-
         InboxItemHolder holder;
         View inboxRow = convertView;
 
+        System.out.println("GETTING INBOX LIST VIEW");
+
         if(inboxRow == null){
             LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            inboxRow = inflater.inflate(R.layout.inbox_item, parent, false);
+            inboxRow = inflater.inflate(R.layout.inbox_item, null);
 
             //Passing data of Feed Item to min-profile
             holder = new InboxItemHolder();

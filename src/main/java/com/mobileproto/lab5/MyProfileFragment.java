@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -53,6 +54,53 @@ public class MyProfileFragment extends Fragment {
                 startActivity(in);
             }
         });
+
+
+        ArrayList<String> cursiouslist = new ArrayList<String>();
+        cursiouslist.add("SCOPE");
+        cursiouslist.add("ADE");
+        cursiouslist.add("ECE after Olin");
+        cursiouslist.add("E:C after Olin");
+
+        ArrayList<String> canhelp = new ArrayList<String>();
+        canhelp.add("Frankly Speaking");
+        canhelp.add("Junior Year");
+        canhelp.add("POE");
+        canhelp.add("Olin Robotic Sailing Team");
+
+        try {
+            //For help stuff
+            ArrayAdapter<String> helpadapter = new ArrayAdapter(getActivity(),
+                    R.layout.list_view,
+                    cursiouslist){
+                public View getView(final int position, View convertView, ViewGroup parent) {
+                    View view = View.inflate(getActivity(), R.layout.list_view, null);
+
+                    final TextView textView = (TextView) view.findViewById(R.id.listItem);
+                    textView.setText(getItem(position).toString());
+
+                    return view;
+                }
+            };
+            helpList.setAdapter(helpadapter);
+
+            //For help stuff
+            ArrayAdapter<String> answeradapter =
+                    new ArrayAdapter(getActivity(), R.layout.list_view, canhelp){
+                        @Override
+                        public View getView(final int position, View convertView, ViewGroup parent) {
+                            View view = View.inflate(getActivity(), R.layout.list_view, null);
+                            final TextView textView = (TextView) view.findViewById(R.id.listItem);
+                            textView.setText(getItem(position).toString());
+                            return view;
+                        }
+                    };
+
+            answerList.setAdapter(answeradapter);
+
+        }catch (Exception E){
+            System.out.println("ARRAY ADAPTER IS BROKEN");
+        }
 
         return v;
     }

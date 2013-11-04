@@ -31,11 +31,11 @@ public class InboxActivity extends Activity {
 
         inboxItem = new ArrayList<InboxItem>();
 
-        InboxItem inA = new InboxItem("Axel Vicas", "Yesterday", "Lyra! I’m really interested in getting involved with the Olin Robotic Sailing Team, and I was wondering if you could tell me a little bit about it put me in touch with the relevant person. The concept of a robotic sailboat seems really neat to me.");
-        InboxItem inB = new InboxItem("Tim Ryan", "Today", "says HI!");
-        InboxItem inC = new InboxItem("Finn Anders", "Someday", "Hi Lyra, I’m really interested in Frankly Speaking this year, and I was wondering if I could submit an article about my adventures on Mt. Everest.");
-        InboxItem inD = new InboxItem("Batman", "Today", "says HI!");
-        InboxItem inE = new InboxItem("Zach Homans", "Today", "says HI!");
+        InboxItem inA = new InboxItem("Axel Vicas", "Lyra! I’m really interested in getting involved with the Olin Robotic Sailing Team, and I was wondering if you could tell me a little bit about it put me in touch with the relevant person. The concept of a robotic sailboat seems really neat to me.");
+        InboxItem inB = new InboxItem("Tim Ryan", "says HI!");
+        InboxItem inC = new InboxItem("Finn Anders", "Hi Lyra, I’m really interested in Frankly Speaking this year, and I was wondering if I could submit an article about my adventures on Mt. Everest.");
+        InboxItem inD = new InboxItem("Batman", "says HI!");
+        InboxItem inE = new InboxItem("Zach Homans", "says HI!");
 
         inboxItem.add(inA);
         inboxItem.add(inB);
@@ -43,8 +43,9 @@ public class InboxActivity extends Activity {
         inboxItem.add(inD);
         inboxItem.add(inE);
 
-        InboxListAdapter inboxListAdapter = new InboxListAdapter(this, inboxItem);
+        System.out.println(inboxItem);
 
+        InboxListAdapter inboxListAdapter = new InboxListAdapter(this, inboxItem);
         inbox.setAdapter(inboxListAdapter);
     }
 }

@@ -12,13 +12,11 @@ import java.util.ArrayList;
 public class InboxItem {
 
     public String name;
-    public String date;
     public String message;
 
-    public InboxItem(String name, String date, String message) {
+    public InboxItem(String name,  String message) {
         //Unpacking
         this.name = name;
-        this.date = date;
         this.message = message;
     }
 

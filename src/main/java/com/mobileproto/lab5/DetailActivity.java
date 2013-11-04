@@ -50,7 +50,8 @@ public class DetailActivity extends Activity {
             public void onClick(View view) {
                 //Go to the message View
                 Intent in = new Intent(getApplicationContext(), MessageActivity.class);
-                in.putExtra("username", username.toString());
+                String getUser = username.getText().toString();
+                in.putExtra("username", getUser);
                 startActivity(in);
             }
         });
@@ -60,7 +61,8 @@ public class DetailActivity extends Activity {
             public void onClick(View view) {
                 //Go to the "Hi sent" view
                 Intent in = new Intent(getApplicationContext(), HiActivity.class);
-                in.putExtra("username", username.toString());
+                String getUser = username.getText().toString();
+                in.putExtra("username", getUser);
                 startActivity(in);
             }
         });

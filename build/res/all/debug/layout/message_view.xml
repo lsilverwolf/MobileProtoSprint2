@@ -2,6 +2,42 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent" android:layout_marginTop="16dp"
+    android:layout_marginLeft="16dp" android:layout_marginRight="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Send a Message to:"
+        android:id="@+id/messageTop"
+        android:layout_marginLeft="8dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Name"
+        android:id="@+id/messageTo"
+        android:layout_marginLeft="8dp" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:lines="8"
+        android:maxLines="8"
+        android:gravity="top"
+        android:background="#f0f0f0"
+        android:ems="10"
+        android:id="@+id/noteField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:padding="8dp" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Send"
+        android:id="@+id/saveButton"/>
 
 </LinearLayout><!-- From: file:/home/kaustin/MobileProtoSprint2/src/main/res/layout/message_view.xml -->

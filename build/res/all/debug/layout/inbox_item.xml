@@ -22,7 +22,6 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
         android:id="@+id/inboxMessage"
-        android:layout_below="@+id/feedItemUser"
         android:layout_marginLeft="8dp" />
 
 </LinearLayout><!-- From: file:/home/kaustin/MobileProtoSprint2/src/main/res/layout/inbox_item.xml -->
