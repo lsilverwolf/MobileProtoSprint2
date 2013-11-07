@@ -4,21 +4,21 @@ CHAOS (connecting helpful alumni and Olin students) is an app that strives to lo
 
 This sprint was done for Evertrue, a Boston-based mobile networking platform for alumni communities.
 
-<h1>IMPLEMENTATION</h1>
-<h2>Data</h2>
+<h2>IMPLEMENTATION</h2>
+<h3>Data</h3>
 We ultimately hard-coded in much of the data for this app despite the fact that we created a server-side database for storing the data. The user profile was hard-coded with no way to currently edit it, and the other fake user profiles were hard-coded in the server database.
 
-<h2>Main Feed Fragment</h2>
+<h3>Main Feed Fragment</h3>
 The main view displayed all results from the server as expected (there were actually multiple copies of each user in the server). However, when the user clicked on any of the profiles, they all opened to Jane Roe’s detail view profile. This particular detail view profile displayed as expected, but we have not idea why it was the only one that came up when any of the results were clicked on.
 
-<h2>Detail Activity</h2>
+<h3>Detail Activity</h3>
 Inside of the detail view there were two buttons, one for sending a message and one for sending a “hi.” The message button opened to a new fragment where a user could type a message, but the we never implemented the functionality of getting the text from the box and saving it into the server to be displayed to the recipient of the message. The “hi” button displayed a view that said the “hi” was sent, but again, the “hi” was never stored to the server to be viewed by its recipient.
 
-<h2>Search Fragment</h2>
+<h3>Search Fragment</h3>
 The search feature worked to the best of our knowledge, although we were having some problems with it hypothetically not displaying all of the results. This view also suffered from the problem that when you clicked on any user in the results list, the detail view opened to Jane Roe.
 
-<h2>User Profile Fragment</h2>
+<h3>User Profile Fragment</h3>
 Finally in the profile fragment, all of the data displayed as expected, except that the full lists did not show up in the view. We tried to implement a scroll view so that we could just scroll the whole view basically, to view the entirety of everyone’s list, but it did not end up working. 
 
-<h2>Message Inbox Activity</h2>
+<h3>Message Inbox Activity</h3>
 At the top of the user profile, we had a button that displayed the user’s inbox. This was not the best design decision to place the inbox bar inside of the user’s profile fragment, but we thought that we were more likely to be able to get it to work if we put it here. However, after several hours of staring at it and trying to de-bug it, we still were unable to get the message activity to open and display the messages.
