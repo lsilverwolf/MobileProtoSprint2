@@ -4,7 +4,7 @@ CHAOS (connecting helpful alumni and Olin students) is an app that strives to lo
 
 This sprint was done for Evertrue, a Boston-based mobile networking platform for alumni communities.
 
-<h2>IMPLEMENTATION</h2>
+<h2>Implementation</h2>
 <h3>Data</h3>
 We ultimately hard-coded in much of the data for this app despite the fact that we created a server-side database for storing the data. The user profile was hard-coded with no way to currently edit it, and the other fake user profiles were hard-coded in the server database.
 
